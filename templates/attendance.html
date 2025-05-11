@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Daftar Kehadiran Siswa</h2>
+
+<form method="post" action="{{ url_for('add_attendance') }}" class="mb-4">
+    <div class="row g-2">
+        <div class="col-md-4">
+            <input type="text" name="name" class="form-control" placeholder="Nama Siswa" required>
+        </div>
+        <div class="col-md-4">
+            <select name="status" class="form-select" required>
+                <option value="">-- Status Kehadiran --</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Izin">Izin</option>
+                <option value="Sakit">Sakit</option>
+                <option value="Alpa">Alpa</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success">Tambah Kehadiran</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead><tr><th>ID</th><th>Nama</th><th>Status</th></tr></thead>
+    <tbody>
+    {% for row in data %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

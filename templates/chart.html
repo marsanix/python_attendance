@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Visualisasi Kehadiran Siswa</h2>
+<p>Grafik batang dari total kehadiran berdasarkan status.</p>
+<img src="data:image/png;base64,{{ plot_url }}" class="img-fluid border shadow-sm">
+{% endblock %}
