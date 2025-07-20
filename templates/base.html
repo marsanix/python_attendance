@@ -13,7 +13,9 @@
         <a class="navbar-brand" href="{{ url_for('dashboard') }}">Dashboard</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('users') }}">Users</a></li>
+              {% if is_admin() %}
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('users') }}">Users</a></li> 
+              {% endif %}
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('attendance') }}">Attendance</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('chart') }}">Chart</a></li>
             </ul>
